@@ -6,8 +6,6 @@ int maior (int a, int b){
     return b;
 }
 
-
-
 int main(){
     
     int m = maior(100,1000);
