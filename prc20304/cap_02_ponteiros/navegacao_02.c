@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 void ir_sudoeste(............. , ...........){
-    /* Diminua a latitute */
+    /* Diminua a latitude */
     
     ........ = ........ - 1;
     /* Aumente a longitude */
@@ -20,7 +20,7 @@ int main()
     
     ir_sudoeste(................. , ................);
     
-    printf("Avast! Agora em: [%i, %i]\n", latitute, longitude);
+    printf("Avast! Agora em: [%i, %i]\n", latitude, longitude);
     
     return 0;
 }
