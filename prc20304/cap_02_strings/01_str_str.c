@@ -16,7 +16,11 @@ int main(){
     char s3[16];
     
     puts("Digite a string:");
-    scanf("%15s", s3);
+    fgets(s3,16,stdin);
+//    scanf("%15s", s3);
+
+	s3[strlen(s3)-1] = 0;
+	puts(s3);
     
     if (strstr(s2, s3))
         printf("Encontrado %s em %s\n", s3, s2);

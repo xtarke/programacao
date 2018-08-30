@@ -4,8 +4,8 @@
 #include "pilha.h"
 
 struct pilhas {
-    int topo;
-    int data[TAMANHO_DADOS_PILHA];
+    int topo;                       /*!< Índice do vetor que representa o topo da fila */
+    int data[TAMANHO_DADOS_PILHA]; /*!< Vetor que manterá os dados. */
 };
 
 
