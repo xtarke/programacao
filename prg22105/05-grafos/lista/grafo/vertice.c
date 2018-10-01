@@ -12,25 +12,29 @@
 #include "../lista_enc/lista_enc.h"
 
 struct vertices {
-	int id;
-	lista_enc_t *arestas;
+	int id;                /*!< Identificação numérica do vértice  */
+	lista_enc_t *arestas;  /*!< Listas encadeada das arestas pertencentes ao vértice  */
 
-	/* Informacoes para componentes conexos */
+	/* Informações para componentes conexos */
 	int id_grupo;
 	vertice_t* pai;
 
 };
 
 struct arestas {
-	int peso;
-	vertice_t *fonte;
-	vertice_t *dest;
+	int peso;          /*!< Identificação numérica da aresta  */
+	vertice_t *fonte;  /*!< Vértice fonte. Geralmente vértice pertencente a lista de arestas do vértice */
+	vertice_t *dest;   /*!< Vértice destino */
 
-	/* status para expotacao em arquivo */
-	status_aresta_t status;
+	status_aresta_t status;     /*!< Estado de exportação. Utilizado na função de exportação para dot. */
 };
 
-
+/**
+  * @brief  Cria uma novo vértice 
+  * @param	id: Identificação numérica do vértice
+  *
+  * @retval vertice_t: ponteiro para um novo vértice
+  */
 vertice_t *cria_vertice(int id)
 {
 	vertice_t *p = NULL;
@@ -50,6 +54,12 @@ vertice_t *cria_vertice(int id)
 	return p;
 }
 
+/**
+  * @brief  Obtém o identificador numérico do vértice
+  * @param	vertice: ponteiro do vértice
+  *
+  * @retval int: identificador numérico do vértice
+  */
 int vertice_get_id(vertice_t *vertice)
 {
 	if (vertice == NULL)
@@ -60,7 +70,14 @@ int vertice_get_id(vertice_t *vertice)
 
 	return vertice->id;
 }
-
+/**
+  * @brief  Cria uma aresta entre dois vértices
+  * @param	fonte: ponteiro do vértice fonte
+  * @param	destino: ponteiro do vértice destino
+  * @param  peso: peso da aresta
+  *
+  * @retval arestas_t: ponteiro da nova aresta criada
+  */
 arestas_t *cria_aresta(vertice_t *fonte, vertice_t *destino, int peso)
 {
 	arestas_t *p;
@@ -79,6 +96,13 @@ arestas_t *cria_aresta(vertice_t *fonte, vertice_t *destino, int peso)
 	return p;
 }
 
+/**
+  * @brief  Adiciona uma nova aresta na lista de arestas de um vértice
+  * @param	vertice: ponteiro do vértice
+  * @param	aresta: ponteiro da aresta
+  *
+  * @retval Nenhum
+  */
 void adiciona_aresta(vertice_t *vertice, arestas_t *aresta)
 {
 	no_t *no;
@@ -93,6 +117,12 @@ void adiciona_aresta(vertice_t *vertice, arestas_t *aresta)
 
 }
 
+/**
+  * @brief  Obtém a lista encadadeada de arestas: útil para obter todos vértices adjacentes
+  * @param	vertice: ponteiro do vértice
+  *
+  * @retval lista_enc_t: lista encadeada contendas as arestas
+  */
 lista_enc_t *vertice_get_arestas(vertice_t *vertice)
 {
 	if (vertice == NULL){
@@ -103,6 +133,12 @@ lista_enc_t *vertice_get_arestas(vertice_t *vertice)
 	return vertice->arestas;
 }
 
+/**
+  * @brief  Obtém o peso se uma aresta
+  * @param	aresta: ponteiro da aresta
+  *
+  * @retval int: peso numérico da aresta
+  */
 int aresta_get_peso (arestas_t *aresta) {
 	if (aresta == NULL){
 		fprintf(stderr, "aresta_get_peso: aresta invalido\n");
@@ -112,6 +148,12 @@ int aresta_get_peso (arestas_t *aresta) {
 	return aresta->peso;
 }
 
+/**
+  * @brief  Obtém o vértice adjacente de um aresta
+  * @param	aresta: ponteiro da aresta
+  *
+  * @retval vertice_t: vértice adjacente ou destino
+  */
 vertice_t *aresta_get_adjacente(arestas_t *aresta)
 {
 	if (aresta == NULL){
@@ -122,6 +164,13 @@ vertice_t *aresta_get_adjacente(arestas_t *aresta)
 	return aresta->dest;
 }
 
+/**
+  * @brief  Retorna uma aresta se um vértice for adjacente a outro: busca linear na lista de arestas
+  * @param	vertice: vértice de referência
+  * @param  adjacente: vértice que se deseja verificar se é adjacente à referência
+  *
+  * @retval arestas_t: aresta adjacente. NULL se não for adjacente
+  */
 arestas_t *procurar_adjacente(vertice_t *vertice, vertice_t *adjacente)
 {
 	no_t *no;
@@ -147,6 +196,12 @@ arestas_t *procurar_adjacente(vertice_t *vertice, vertice_t *adjacente)
 	return NULL;
 }
 
+/**
+  * @brief  Retorna o estado de exportação de uma aresta. Utilizada para geração do dot
+  * @param	aresta: aresta em questão
+  *
+  * @retval status_aresta_t: estado atual: conforme status_aresta_t
+  */
 status_aresta_t aresta_get_status (arestas_t *aresta)
 {
 	if (aresta == NULL){
@@ -157,6 +212,13 @@ status_aresta_t aresta_get_status (arestas_t *aresta)
 	return aresta->status;
 }
 
+/**
+  * @brief  Altera o de exportação de uma aresta. Utilizada para geração do dot
+  * @param	aresta: aresta em questão
+  * @param  status: novo estado: conforme status_aresta_t
+  *
+  * @retval Nenhum
+  */
 void aresta_set_status(arestas_t *aresta, status_aresta_t status)
 {
 	if (aresta == NULL){
@@ -167,7 +229,13 @@ void aresta_set_status(arestas_t *aresta, status_aresta_t status)
 	aresta->status = status;
 }
 
-/*------------------------------------------*/
+/**
+  * @brief  Altera a propriedade grupo de um vértice
+  * @param	vertice: vértice em questão
+  * @param  grupo: novo grupo
+  *
+  * @retval Nenhum
+  */
 void vertice_set_grupo(vertice_t *vertice, int grupo) {
 
 	if (vertice == NULL){
@@ -178,6 +246,12 @@ void vertice_set_grupo(vertice_t *vertice, int grupo) {
 	vertice->id_grupo = grupo;
 }
 
+/**
+  * @brief  Obtém a propriedade grupo de um vértice
+  * @param	vertice: vértice em questão
+  *
+  * @retval int: grupo da aresta
+  */
 int vertice_get_grupo(vertice_t *vertice) {
 
 	if (vertice == NULL){
@@ -187,7 +261,13 @@ int vertice_get_grupo(vertice_t *vertice) {
 
 	return vertice->id_grupo;
 }
-
+/**
+  * @brief  Altera a propriedade pai de um vértice
+  * @param	vertice: vértice em questão
+  * @param  pai: novo vértice adjacente e pai 
+  *
+  * @retval Nenhum
+  */
 void vertice_set_pai(vertice_t *vertice, vertice_t *pai) {
 
 	if (vertice == NULL){
@@ -197,66 +277,3 @@ void vertice_set_pai(vertice_t *vertice, vertice_t *pai) {
 
 	vertice->pai = pai;
 }
-
-
-
-
-
-
-//void vertice_set_dist(vertice_t *vertice, int dist) {
-//
-//	if (vertice == NULL){
-//			fprintf(stderr, "vertice_set_dist: vertice invalido\n");
-//			exit(EXIT_FAILURE);
-//	}
-//
-//	vertice->dist =  dist;
-//}
-//
-//int vertice_get_dist(vertice_t *vertice){
-//
-//	if (vertice == NULL){
-//			fprintf(stderr, "vertice_get_dist: vertice invalido\n");
-//			exit(EXIT_FAILURE);
-//	}
-//
-//	return vertice->dist;
-//}
-//
-//int vertices_comprimento(vertice_t *fonte, vertice_t *destino)
-//{
-//	arestas_t *aresta;
-//
-//	if (fonte == NULL || destino == NULL){
-//		fprintf(stderr, "vertices_comprimento: vertices invalidos\n");
-//		exit(EXIT_FAILURE);
-//	}
-//
-//	aresta = procurar_adjacente(fonte, destino);
-//
-//	if (aresta == NULL) {
-//		fprintf(stderr, "vertices_comprimento: vertices nao adjacentes\n");
-//		exit(EXIT_FAILURE);
-//	}
-//
-//	return aresta->peso;
-//}
-//
-//void vertice_set_antec_caminho(vertice_t *vertice, vertice_t *antecessor){
-//
-//	if (vertice == NULL || antecessor == NULL){
-//		fprintf(stderr, "vertice_set_antec_caminho: vertices invalidos\n");
-//		exit(EXIT_FAILURE);
-//	}
-//
-//	vertice->antecessor_caminho = antecessor;
-//}
-//
-//vertice_t *vertice_get_antec_caminho(vertice_t *vertice) {
-//	if (vertice == NULL){
-//		fprintf(stderr, "vertice_get_antec_aminho: vertice invalidos\n");
-//		exit(EXIT_FAILURE);
-//	}
-//
-//	return vertice->antecessor_caminho;
-//}

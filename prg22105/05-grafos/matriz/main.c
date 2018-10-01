@@ -19,6 +19,7 @@ int main(void) {
 	int i,j;
 	grafo_t *g;
 
+    /* Cria grafo com 20 vértices */
 	g = cria_grafo(20);
 
 	/*    Adicionar arestas    *
@@ -31,7 +32,7 @@ int main(void) {
 	 ***************************/
 
 
-	/* Imprimi matriz */
+	/* Imprime matriz */
 	for (i=0; i < 20; i++){
 		for (j=0; j < 20; j++)
 			printf("[%d] [%d] : %d\n", i,j, adjacente(g,i,j));

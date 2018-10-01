@@ -2,7 +2,7 @@
  * grafo.c
  *
  *  Created on: Nov 18, 2016
- *      Author: xtarke
+ *      Author: Renan Augusto Starke
  */
 
 #include <stdlib.h>
@@ -12,34 +12,44 @@
 #include "grafo.h"
 
 struct vertices {
-	int id;
-	/* mais informacoes, se necessario */
+	int id;         /*!< Identificação numérica do vértice  */
+	
+    /* Mais informações, se necessário */
 };
 
 struct arestas {
-	int adj;
-	/* mais informacoes, se necessario */
+	int adj;        /*!< Valor booleando. Verdadeiro representa uma adjacência entre dois vértices  */
+	
+    /* Mais informações, se necessário */
 };
 
 struct grafos{
-	int n_vertices;
-	vertice_t *vertices;
-	aresta_t **matriz_adj;	/* Matriz de adjacencia */
+	int n_vertices;        /*!< Número de vértices do grafo  */
+	vertice_t *vertices;   /*!< Vetor de ponteiros: conjunto V */
+	aresta_t **matriz_adj;	/* Matriz de adjacência: conjunto E */
 };
 
-
+/**
+  * @brief  Cria uma novo grafo estático
+  * @param	vertices: quantidade de vértices
+  *
+  * @retval grafo_t: ponteiro para um novo grafo
+  */
 grafo_t *cria_grafo(int vertices)
 {
 	int i;
 	aresta_t **matriz_adj;
-	grafo_t *g = malloc(sizeof(grafo_t));
+	/* Aloca estrutura do grafo */
+    grafo_t *g = malloc(sizeof(grafo_t));
 
 	if (g == NULL){
 		perror("cria_grafo (g)");
 		exit(EXIT_FAILURE);
 	}
 
+	/* Guarda número total de vértices */
 	g->n_vertices = vertices;
+    /* Aloca vértices */
 	g->vertices = malloc(vertices * sizeof(vertice_t));
 
 	if (g->vertices == NULL){
@@ -47,8 +57,10 @@ grafo_t *cria_grafo(int vertices)
 		exit(EXIT_FAILURE);
 	}
 
+	/* Zera vetor de vértices */
 	memset(g->vertices, 0, vertices * sizeof(vertice_t));
 
+    /* Aloca 1a dimensão da matriz de adjacência */
 	matriz_adj = malloc(vertices * sizeof(aresta_t *));
 
 	if (matriz_adj == NULL){
@@ -56,9 +68,10 @@ grafo_t *cria_grafo(int vertices)
 		exit(EXIT_FAILURE);
 	}
 
+	 /* Aloca 2a dimensão da matriz de adjacência */
 	for ( i = 0; i < vertices; i++ )
 	{
-		matriz_adj[i] = calloc(vertices, sizeof(vertice_t));
+		matriz_adj[i] = calloc(vertices, sizeof(aresta_t));
 
 		if (matriz_adj[i] == NULL){
 			perror("cria_grafo (matriz_adj[i])");
@@ -71,6 +84,12 @@ grafo_t *cria_grafo(int vertices)
 	return g;
 }
 
+/**
+  * @brief  Libera a memória utilizada pelo grafo
+  * @param	Nenhum
+  *
+  * @retval Nenhum
+  */
 void libera_grafo (grafo_t *g){
 	int i;
 
@@ -87,7 +106,13 @@ void libera_grafo (grafo_t *g){
 	free(g);
 }
 
-
+/**
+  * @brief  Cria adjacência entre vértices u e v
+  * @param	u: índice do vértice u
+  * @param  v: índice do vértice v
+  *
+  * @retval int: verdadeiro se adjacência for criada
+  */
 int cria_adjacencia(grafo_t *g, int u, int v){
 
 	if (g == NULL){
@@ -102,6 +127,13 @@ int cria_adjacencia(grafo_t *g, int u, int v){
 	return TRUE;
 }
 
+/**
+  * @brief  Remove adjacência entre vértices u e v
+  * @param	u: índice do vértice u
+  * @param  v: índice do vértice v
+  *
+  * @retval int: verdadeiro se adjacência for removida
+  */
 int rem_adjacencia(grafo_t *g, int u, int v){
 
 	if (g == NULL){
@@ -116,6 +148,13 @@ int rem_adjacencia(grafo_t *g, int u, int v){
 	return TRUE;
 }
 
+/**
+  * @brief  Retorna adjacência entre vértices u e v
+  * @param	u: índice do vértice u
+  * @param  v: índice do vértice v
+  *
+  * @retval int: verdadeiro se u for adjacente a v
+  */
 int adjacente(grafo_t *g, int u, int v){
 
 	if (u > MAX_VERTICES || v > MAX_VERTICES)
@@ -123,5 +162,3 @@ int adjacente(grafo_t *g, int u, int v){
 
 	return ((g->matriz_adj[u][v].adj));
 }
-
-

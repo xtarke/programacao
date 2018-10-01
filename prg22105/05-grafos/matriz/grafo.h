@@ -2,14 +2,11 @@
  * grafo.h
  *
  *  Created on: Nov 18, 2016
- *      Author: xtarke
+ *      Author: Renan Augusto Starke
  */
 
 #ifndef GRAFO_H_
 #define GRAFO_H_
-
-
-#define MAX_VERTICES 50
 
 #define TRUE 1
 #define FALSE 0

@@ -25,11 +25,17 @@
 #define INFINITO INT_MAX
 
 struct grafos {
-	int id;
-	lista_enc_t *vertices;
+	int id;                    /*!< Identificação numérica do grafo  */
+	lista_enc_t *vertices;     /*!< Lista encadeada dos vértices: conjunto V  */
 };
 
-
+/**
+  * @brief  Busca em largura
+  * @param	grafo: ponteiro do grafo que se deseja executar a busca
+  * @param  inicial: ponteiro do vértice inicial (fonte) da busca
+  *
+  * @retval Nenhum: Vértices são marcados internamente
+  */
 void bfs(grafo_t *grafo, vertice_t* inicial)
 {
 
@@ -38,7 +44,13 @@ void bfs(grafo_t *grafo, vertice_t* inicial)
 
 }
 
-
+/**
+  * @brief  Busca em profundidade
+  * @param	grafo: ponteiro do grafo que se deseja executar a busca
+  * @param  inicial: ponteiro do vértice inicial (fonte) da busca
+  *
+  * @retval Nenhum: Vértices são marcados internamente
+  */
 void dfs(grafo_t *grafo, vertice_t* inicial)
 {
 
@@ -48,8 +60,12 @@ void dfs(grafo_t *grafo, vertice_t* inicial)
 
 }
 
-//--------------------------------------------------------------------------------------
-
+/**
+  * @brief  Cria uma novo grafo 
+  * @param	id: Identificação numérica do grafo
+  *
+  * @retval grafo_t: ponteiro para um novo grafo
+  */
 grafo_t *cria_grafo(int id)
 {
 	grafo_t *p = NULL;
@@ -67,6 +83,13 @@ grafo_t *cria_grafo(int id)
 	return p;
 }
 
+/**
+  * @brief  Adicionar um vértice no grafo (conjunto V)
+  * @param	grafo: ponteiro do grafo que se deseja adicionar um vértice
+  * @param  id: identificação da vértice
+  *
+  * @retval vertice_t: ponteiro do vértice criado e adicionada no grafo
+  */
 vertice_t* grafo_adicionar_vertice(grafo_t *grafo, int id)
 {
 	vertice_t *vertice;
@@ -94,6 +117,13 @@ vertice_t* grafo_adicionar_vertice(grafo_t *grafo, int id)
 	return vertice;
 }
 
+/**
+  * @brief  Procura um vértice com id específico no grafo
+  * @param	grafo: ponteiro do grafo que se deseja busca o vértice
+  * @param  id: identificação da aresta
+  *
+  * @retval vertice_t: ponteiro do vértice. NULL se não encontrado
+  */
 vertice_t* procura_vertice(grafo_t *grafo, int id)
 {
 	no_t *no_lista;
@@ -127,6 +157,19 @@ vertice_t* procura_vertice(grafo_t *grafo, int id)
 
 	return NULL;
 }
+
+/**
+  * @brief  Cria adjacências. 
+  * @param	grafo: ponteiro do grafo que contém o vértice (V pertence a G)
+  * @param  vertice: vértice fonte da(s) adjacências
+  * @param  n: número de parâmetros após n
+  * @param  ...: pares ordenados dos vertices destino e peso da aresta: (id vertice destino, peso aresta)
+  *
+  * @retval Nenhum
+  * 
+  * Ex: adicionar uma aresta para o vertice 2 e 3 com respectivos pesos 9 e 15
+  * adiciona_adjacentes(grafo, vertice, 4(n), 2, 9, 3, 15);
+  */
 
 void adiciona_adjacentes(grafo_t *grafo, vertice_t *vertice, int n, ...)
 {
@@ -167,6 +210,13 @@ void adiciona_adjacentes(grafo_t *grafo, vertice_t *vertice, int n, ...)
 	va_end (argumentos);
 }
 
+/**
+  * @brief  Exporta o grafo em formato dot.
+  * @param	filename: nome do arquivo dot gerado
+  * @param  grafo: ponteiro do grafo a ser exportado
+  *
+  * @retval Nenhum
+  */
 void exportar_grafo_dot(const char *filename, grafo_t *grafo)
 {
 	FILE *file;
@@ -237,7 +287,12 @@ void exportar_grafo_dot(const char *filename, grafo_t *grafo)
 	fclose(file);
 }
 
-
+/**
+  * @brief  Libera a memória utilizada pelo grafo
+  * @param  grafo: ponteiro do grafo a ser exportado
+  *
+  * @retval Nenhum
+  */
 void libera_grafo (grafo_t *grafo){
 	no_t *no_vert;
 	no_t *no_arest;

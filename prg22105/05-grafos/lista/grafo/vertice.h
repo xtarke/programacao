@@ -61,24 +61,4 @@ void vertice_set_pai(vertice_t *vertice, vertice_t *pai);
  * Ver: struct vertices */
 int vertice_get_grupo(vertice_t *vertice);
 
-
-/* Configura membro dist da struct vertice
- * Ver: struct vertices */
-//void vertice_set_dist(vertice_t *vertice, int dist);
-
-/* Obtem valor dist da struct vertice
- * Ver: struct vertices  */
-//int vertice_get_dist(vertice_t *vertice);
-
-/* Obtem vertice antecessor do menor caminho.
- * Configurado por Dijkstra  */
-//vertice_t *vertice_get_antec_caminho(vertice_t *vertice);
-
-/* Configura vertice antessor do menor caminho */
-//void vertice_set_antec_caminho(vertice_t *vertice, vertice_t *antecessor);
-
-/* Retorna o comprimento de dois vertices adjacentes */
-//int vertices_comprimento(vertice_t *fonte, vertice_t *destino);
-
-
 #endif /* GRAFO_VERTICE_H_ */

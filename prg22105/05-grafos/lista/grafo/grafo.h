@@ -48,10 +48,7 @@ no_t *busca_menos_distante(lista_enc_t *Q);
 /* Retorna TRUE se vertice_procurado estiver no conjunto Q*/
 int busca_vertice(lista_enc_t *lista, vertice_t *vertice_procurado);
 
-
 lista_enc_t* componentes_conexos(grafo_t *grafo);
-
-
 
 void bfs(grafo_t *grafo, vertice_t* inicial);
 
