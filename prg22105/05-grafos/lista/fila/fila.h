@@ -4,7 +4,6 @@
 
 typedef struct filas fila_t;
 
-
 fila_t * cria_fila (void);
 
 void enqueue(void *dado, fila_t *fila);

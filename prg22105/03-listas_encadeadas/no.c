@@ -82,7 +82,7 @@ void *obter_dado (no_t *no)
   * @brief  Obtém a próxima referência encadeada.
   * @param	no: nó de lista que se deseja obter o próximo elemento.
   *
-  * @retval no_t *: onteiro do próximo elemento da lista. NULL se final de lista.
+  * @retval no_t *: ponteiro do próximo elemento da lista. NULL se final de lista.
   */
 no_t *obter_proximo (no_t *no)
 {

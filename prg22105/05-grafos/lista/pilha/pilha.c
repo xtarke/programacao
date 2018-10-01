@@ -11,11 +11,14 @@
 #define VERDADEIRO 1
 
 struct pilhas {
-	lista_enc_t *dados;
+	lista_enc_t *dados;     /*!< Lista encadeada que contém os dados empilhados */
 };
 
-
-//cria uma pilha generica
+/**
+  * @brief  Cria uma nova pilha genérica
+  *
+  * @retval pilha_t: ponteiro para uma nova pilha
+  */
 pilha_t * cria_pilha (void)
 {
     pilha_t *pilha = (pilha_t*)malloc(sizeof(pilha_t));
@@ -30,7 +33,13 @@ pilha_t * cria_pilha (void)
     return pilha;
 }
 
-//adiciona elemento
+/**
+  * @brief  Empilha um dado
+  * @param dado: referência do dado (ponteiro) a ser adicionado na pilha
+  * @param pilha: pilha criada que receberá o dado.
+  *
+  * @retval Nenhum
+  */
 void push(void* dado, pilha_t *pilha)
 {
 	no_t *no;
@@ -48,7 +57,12 @@ void push(void* dado, pilha_t *pilha)
     add_cauda(pilha->dados, no);
 }
 
-//retira elemento do topo
+/**
+  * @brief Desempilha um dado
+  * @param pilha: pilha criada que retornará o dado.
+  *
+  * @retval void *: Referência do dado desempilhado
+  */
 void *pop(pilha_t *pilha)
 {
 	no_t *no;
@@ -71,6 +85,12 @@ void *pop(pilha_t *pilha)
 }
 
 
+/**
+  * @brief Libera os dados da pilha. Somente se ela estiver fazia
+  * @param pilha: pilha criada.
+  *
+  * @retval Nenhum 
+  */
 void libera_pilha(pilha_t* pilha)
 {
 	if (pilha == NULL) {
@@ -88,6 +108,12 @@ void libera_pilha(pilha_t* pilha)
 
 }
 
+/**
+  * @brief Retorna se a pilha está vazia
+  * @param pilha: pilha criada
+  *
+  * @retval int: verdadeiro se a pilha estiver vazia, senão falso 
+  */
 int pilha_vazia(pilha_t *pilha)
 {
     if (pilha == NULL) {

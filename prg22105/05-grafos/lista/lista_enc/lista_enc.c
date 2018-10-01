@@ -10,12 +10,17 @@
 //#define DEBUG
 
 struct listas_enc {
-    no_t *cabeca;
-    no_t *cauda;
-    int tamanho;
+    no_t *cabeca;   /*!< Referência da cabeça da lista encadeada: primeiro elemento. */
+    no_t *cauda;    /*!< Referência da cauda da lista encadeada: último elemento. */
+    int tamanho;    /*!< Tamanho atual da lista. */
 };
 
-//cria uma lista vazia
+/**
+  * @brief  Cria uma nova lista encadeada vazia.
+  * @param	Nenhum
+  *
+  * @retval lista_enc_t *: ponteiro (referência) da nova lista encadeada.
+  */
 lista_enc_t *cria_lista_enc (void) {
     lista_enc_t *p = malloc(sizeof(lista_enc_t));
 
@@ -31,6 +36,13 @@ lista_enc_t *cria_lista_enc (void) {
     return p;
 }
 
+/**
+  * @brief  Adiciona um nó de lista no final.
+  * @param	lista: lista encadeada que se deseja adicionar.
+  * @param  elemento: nó que será adicionado na cauda.
+  *
+  * @retval Nenhum
+  */
 void add_cauda(lista_enc_t *lista, no_t* elemento)
 {
     if (lista == NULL || elemento == NULL){
@@ -66,6 +78,12 @@ void add_cauda(lista_enc_t *lista, no_t* elemento)
    }
 }
 
+/**
+  * @brief  Imprime os ponteiros de dados adicionados na lista.
+  * @param	lista: lista encadeada 
+  *
+  * @retval Nenhum
+  */
 void imprimi_lista (lista_enc_t *lista)
 {
     no_t *no = NULL;
@@ -84,6 +102,12 @@ void imprimi_lista (lista_enc_t *lista)
     }
 }
 
+/**
+  * @brief  Imprime os ponteiros de dados adicionados na lista. Ordem reversa.
+  * @param	lista: lista encadeada
+  *
+  * @retval Nenhum
+  */
 void imprimi_lista_tras (lista_enc_t *lista)
 {
     no_t *no = NULL;
@@ -102,6 +126,12 @@ void imprimi_lista_tras (lista_enc_t *lista)
     }
 }
 
+/**
+  * @brief  Retorna se a lista está vazia.
+  * @param	lista: lista encadeada.
+  *
+  * @retval Nenhum
+  */
 int lista_vazia(lista_enc_t *lista)
 {
 	int ret;
@@ -111,6 +141,12 @@ int lista_vazia(lista_enc_t *lista)
 	return ret;
 }
 
+/**
+  * @brief  Obtém a referência do início (cabeça) da lista encadeada.
+  * @param	lista: lista que se deseja obter o início.
+  *
+  * @retval no_t *: nó inicial (cabeça) da lista.
+  */
 no_t *obter_cabeca(lista_enc_t *lista){
 
 	if (lista == NULL){
@@ -121,6 +157,12 @@ no_t *obter_cabeca(lista_enc_t *lista){
 	return lista->cabeca;
 }
 
+/**
+  * @brief  Obtém a referência do final (cauda) da lista encadeada.
+  * @param	lista: lista que se deseja obter a cauda
+  *
+  * @retval no_t *: nó final (cauda) da lista.
+  */
 no_t *obter_cauda(lista_enc_t *lista){
 
 	if (lista == NULL){
@@ -131,6 +173,12 @@ no_t *obter_cauda(lista_enc_t *lista){
 	return lista->cauda;
 }
 
+/**
+  * @brief  Remove um dado do final (cauda) da lista encadeada.
+  * @param	lista: lista que se deseja remover da cauda
+  *
+  * @retval no_t *: nó removido da lista.
+  */
 no_t *remover_cauda(lista_enc_t *lista)
 {
 	no_t *anterior;
@@ -164,6 +212,12 @@ no_t *remover_cauda(lista_enc_t *lista)
 	return removido;
 }
 
+/**
+  * @brief  Remove um dado do início (cabeça) da lista encadeada.
+  * @param	lista: lista que se deseja remover da cauda
+  *
+  * @retval no_t *: nó removido da lista.
+  */
 no_t *remover_cabeca(lista_enc_t *lista)
 {
 	no_t *proximo;
@@ -198,6 +252,13 @@ no_t *remover_cabeca(lista_enc_t *lista)
 	return removido;
 }
 
+/**
+  * @brief  Remove um nó da lista encadeada
+  * @param	lista: lista que se deseja remover da cauda
+  * @param  no_removido: nó que se deseja remover da lista
+  *
+  * @retval no_t *: nó removido da lista.
+  */
 void *remover_no(lista_enc_t *lista, no_t *no_removido)
 {
 	no_t *meu_no;

@@ -47,7 +47,7 @@ no_t *obter_cabeca(lista_enc_t *lista){
 /**
   * @brief  Adiciona um nó de lista no final.
   * @param	lista: lista encadeada que se deseja adicionar.
-  *         elemento: nó que será adicionado na cauda.
+  * @param  elemento: nó que será adicionado na cauda.
   *
   * @retval Nenhum
   */

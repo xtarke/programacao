@@ -60,8 +60,8 @@ void enqueue(int dado, fila_t* fila)
 }
 
 /**
-  * @brief Empilha um novo inteiro. 
-  * @param dado: inteiro a ser adicionado no topo da fila
+  * @brief Retira da fila um inteiro. 
+  * @param dado: inteiro a ser removido do topo da fila
   * @param fila: fila criada que receberá o dado.
   *
   * @retval Nenhum 

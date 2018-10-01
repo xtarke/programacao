@@ -9,11 +9,15 @@
 #define VERDADEIRO 1
 
 struct filas {
-	lista_enc_t *dados;
+	lista_enc_t *dados;     /*!< Lista encadeada que contém os dados enfileirados */
 };
 
 
-//cria uma pilha generica
+/**
+  * @brief  Cria uma nova fila genérica
+  *
+  * @retval fila_t: ponteiro para uma nova fila
+  */
 fila_t * cria_fila (void)
 {
 	fila_t *p = (fila_t*)malloc(sizeof(fila_t));
@@ -29,7 +33,13 @@ fila_t * cria_fila (void)
 }
 
 
-//adiciona elemento
+/**
+  * @brief Enfileira um novo dado. 
+  * @param dado: referência do dado (ponteiro) a ser adicionado no topo da fila
+  * @param fila: fila criada que receberá o dado.
+  *
+  * @retval Nenhum
+  */
 void enqueue(void* dado, fila_t *fila)
 {
 	no_t *no;
@@ -47,7 +57,13 @@ void enqueue(void* dado, fila_t *fila)
     add_cauda(fila->dados, no);
 }
 
-//retira elemento do topo
+
+/**
+  * @brief Retira da fila um dado. 
+  * @param fila: fila criada que retornará o dado.
+  *
+  * @retval Nenhum 
+  */
 void *dequeue(fila_t *fila)
 {
 	no_t *no;
@@ -65,7 +81,12 @@ void *dequeue(fila_t *fila)
     return dado;
 }
 
-
+/**
+  * @brief Libera os dados da fila. Somente se ela estiver fazia
+  * @param fila: fila criada.
+  *
+  * @retval Nenhum 
+  */
 void libera_fila(fila_t* fila)
 {
     if (fila == NULL) {
@@ -82,6 +103,12 @@ void libera_fila(fila_t* fila)
     free(fila);
 }
 
+/**
+  * @brief Retorna se a fila está vazia
+  * @param fila: fila criada
+  *
+  * @retval int: verdadeiro se a fila estiver vazia, senão falso 
+  */
 int fila_vazia(fila_t *fila)
 {
     if (fila == NULL) {
