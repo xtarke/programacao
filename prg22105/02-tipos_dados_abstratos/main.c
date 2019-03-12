@@ -6,7 +6,7 @@ int main()
 {
     //variáveis
     float x,y;
-    ponto *p1, *p2, *p3;
+    ponto_t *p1, *p2, *p3;
 
     //cria ponto
     p1 = cria(5.5, 8.9);
