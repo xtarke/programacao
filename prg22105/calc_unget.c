@@ -5,7 +5,7 @@
  Version     :
  Copyright   : Renan, todos os direitos reservados
  Description : Calculadora a pós-fixada: baseado no exemplo de Estruturas
- 	 	 	 	 de dados: Celes_Rangel
+ 	 	 	 	 de dados: Celes_Rangel  
  ============================================================================
  */
 
