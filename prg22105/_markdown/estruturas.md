@@ -38,7 +38,7 @@ struct polares {
     float angulo;
 };
 
-/* Número complexo: coordenadas cartesiandas e polares */
+/* Número complexo: coordenadas cartesianas e polares */
 struct complexo {
     float real;
     float img;
@@ -53,10 +53,10 @@ float modulo (struct complexo a){
 /* Soma de um número complexo */
 struct complexo soma (struct complexo a, struct complexo b){
     struct complexo soma;
-    
+
     soma.real = a.real + b.real;
-    soma.img = a.img + b.img;    
-    
+    soma.img = a.img + b.img;
+
     return soma;
 }
 
@@ -64,39 +64,38 @@ struct complexo soma (struct complexo a, struct complexo b){
 void imprimir(struct complexo z) {
     printf("Real: %f\n", z.real);
     printf("Img: %f\n", z.img);
-    
 }
 
 int main(){
-    
+
     /* Três números complexos estruturados */
     /* Inicialização na criação */
     struct complexo a = { 3, 4, {5, 0.785398}};
     struct complexo b, c;
-    
+
     /* Inicialização por atribuição */
     b.real = 9;
     b.img = 5;
-    
+
     /* Módulo de b */
     b.polar.modulo = modulo(b);
-    
+
     printf("Modulo de b: %f\n", b.polar.modulo);
-    
+
     c = soma(a,b);
-    
-    imprimir(c);     
-    
+
+    imprimir(c);
+
     return 0;
 }
 ```
 
 ## Typedefs
 
-__typedef__ permite renomear um tipo padrão para um nome difernente como por exemplo abaixo. Cria-se o tipo byte baseado no _unsigned char_
+__typedef__ permite renomear um tipo padrão para um nome diferente como por exemplo abaixo. Cria-se o tipo byte baseado no _unsigned char_
 
 ```C
-/* Cria um tipo byte baseado no unsigned char */ 
+/* Cria um tipo byte baseado no unsigned char */
 typedef unsigned char byte;
 
 /* Cria uma variável do tipo byte (na verdade é um unsigned char)
@@ -146,15 +145,15 @@ minha_moto.modelo = 2015;
 
 int main() {
     struct pessoa john;
-    
+
     /* testando o código */
     scanf("%s %d", john.nome, &john.idade)
-    
+
     printf("%s tem %d anos.", john.nome, john.idade);
 }
 ```
 
-- Assumindo a declaração typdef e o vetor de estruturas, complete a função "imprime_dados":
+- Assumindo a declaração __typdef__ e o vetor de estruturas, complete a função "imprime_dados":
 
 ```C
 #include <stdio.h>
@@ -170,7 +169,7 @@ typedef struct dados {
 /* Passagem de parâmetros por vetor para n pessoas */
 void entrar_dados(pessoa_t *vetor_dados, int n){
     int i;
-    
+
     for (i=0; i < n; i++){
         puts("Entre com nome (string), altura (float) e peso(float) separados por espaços");
         scanf("%20s %f %f", vetor_dados[i].nome, &vetor_dados[i].altura, &vetor_dados[i].peso);
@@ -178,23 +177,22 @@ void entrar_dados(pessoa_t *vetor_dados, int n){
 }
 
 void imprime_dados(pessoa_t *vetor_dados, int n){
-    
+
     int i;
-    
+
     //for (i=0; ...)
-    
-    
+
 }
 
 
 int main() {
     pessoa_t dados_de_pessoas[10];
-    
+
     /* Entra com os dados manualmente */
     entrar_dados(dados_de_pessoas, 10);
-    
+
     imprime_dados(dados_de_pessoas, 10);
-    
+
     return 0;
 }
 ```
