@@ -157,7 +157,7 @@ int rem_adjacencia(grafo_t *g, int u, int v){
   */
 int adjacente(grafo_t *g, int u, int v){
 
-	if (u > MAX_VERTICES || v > MAX_VERTICES)
+	if (u > g->n_vertices || v > g->n_vertices)
 		return FALSE;
 
 	return ((g->matriz_adj[u][v].adj));
