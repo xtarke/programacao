@@ -9,7 +9,7 @@
 #include <stdio.h>
 
 #include "vertice.h"
-#include "../lista_enc/lista_enc.h"
+#include "lista_enc.h"
 
 #define TRUE 1
 #define FALSE 0

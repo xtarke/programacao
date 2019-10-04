@@ -8,7 +8,7 @@
 #ifndef GRAFO_VERTICE_H_
 #define GRAFO_VERTICE_H_
 
-#include "../lista_enc/lista_enc.h"
+#include "lista_enc.h"
 
 /* Exporta os tipos de dados do vertice e arestas */
 typedef struct vertices vertice_t;
