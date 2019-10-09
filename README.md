@@ -12,4 +12,4 @@ Este repositório contém material de apoio e exemplos para unidades curriculare
 
 - [Tutorial de instalação Eclipse + compiladores (Windows)](./eclipse_win.md)
 
-- [Tutorial Instalação Eclipse + compiladores (Windows)](./eclipse_lin.md)
+- [Tutorial Instalação Eclipse + compiladores (Linux)](./eclipse_lin.md)
