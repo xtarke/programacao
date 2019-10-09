@@ -2,7 +2,7 @@
 
 - Esse é um guia para instalação do Eclipse no Linux utilizando as __mesmos conjuntos de softwares instalados nos laboratórios do DAELN__.
 
-## Repositório local da instituição
+## Repositório da instituição (apenas conectado na rede local)
 
 1. Instalar o flatpak no sistema (se não estiver instalado).
 2. Adicionar o repositório
