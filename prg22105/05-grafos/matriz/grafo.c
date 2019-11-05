@@ -59,6 +59,12 @@ grafo_t *cria_grafo(int vertices)
 
 	/* Zera vetor de vértices */
 	memset(g->vertices, 0, vertices * sizeof(vertice_t));
+    
+    
+    /* Inicializa ID */
+    for ( i = 0; i < vertices; i++ ){
+        g->vertices[i].id = i;
+    }    
 
     /* Aloca 1a dimensão da matriz de adjacência */
 	matriz_adj = malloc(vertices * sizeof(aresta_t *));
