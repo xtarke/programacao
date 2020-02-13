@@ -1,4 +1,3 @@
-// definição de 10 elevado a 10
 #define BIG_NUMBER 10 ** 10
 
 int main()

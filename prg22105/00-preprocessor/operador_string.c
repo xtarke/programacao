@@ -1,9 +1,9 @@
   #include <stdio.h>
   
-  #define mkstr(s) # s
+  #define MKSTR(S) # S
  
   int main()  {    
-      printf(mkstr(Teste de string));
+      printf(MKSTR(Teste de string));
             
       return 0;
   }
