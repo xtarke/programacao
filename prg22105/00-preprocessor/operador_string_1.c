@@ -1,9 +1,9 @@
   #include <stdio.h>
   
-  #define concat(a,b)  a ## b
+  #define CONCAT(A,B)  A ## B
  
   int main()
   {
     int xy = 10;
-    printf("%d \n", concat(x,y));
+    printf("%d \n", CONCAT(x,y));
   }
