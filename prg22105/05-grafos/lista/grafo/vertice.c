@@ -15,9 +15,12 @@ struct vertices {
 	int id;                /*!< Identificação numérica do vértice  */
 	lista_enc_t *arestas;  /*!< Listas encadeada das arestas pertencentes ao vértice  */
 
-	/* Informações para componentes conexos */
-	int id_grupo;
+	/* Informações para a busca em largura */
+	int distancia;
 	vertice_t* pai;
+    
+    /* Informações para a busca em profundidade */
+    
 
 };
 
