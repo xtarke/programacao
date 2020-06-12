@@ -47,18 +47,9 @@ void aresta_set_status(arestas_t *aresta, status_aresta_t status);
 /* Obtem o status de uma aresta */
 status_aresta_t aresta_get_status (arestas_t *aresta);
 
-
-/* Configura membro id_grupo da struct vertice
- * Ver: struct vertices */
-void vertice_set_grupo(vertice_t *vertice, int grupo);
-
 /* Configura membro pai da struct vertice
  * Ver: struct vertices */
 void vertice_set_pai(vertice_t *vertice, vertice_t *pai);
 
-
-/* Obtem membro id_grupo da struct vertice
- * Ver: struct vertices */
-int vertice_get_grupo(vertice_t *vertice);
 
 #endif /* GRAFO_VERTICE_H_ */

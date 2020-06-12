@@ -51,7 +51,6 @@ vertice_t *cria_vertice(int id)
 
 	p->id = id;
 	p->arestas = cria_lista_enc();
-	p->id_grupo = -1;
 	p->pai = NULL;
 
 	return p;
@@ -232,38 +231,7 @@ void aresta_set_status(arestas_t *aresta, status_aresta_t status)
 	aresta->status = status;
 }
 
-/**
-  * @brief  Altera a propriedade grupo de um vértice
-  * @param	vertice: vértice em questão
-  * @param  grupo: novo grupo
-  *
-  * @retval Nenhum
-  */
-void vertice_set_grupo(vertice_t *vertice, int grupo) {
 
-	if (vertice == NULL){
-			fprintf(stderr, "vertice_set_grupo: vertice invalido\n");
-			exit(EXIT_FAILURE);
-	}
-
-	vertice->id_grupo = grupo;
-}
-
-/**
-  * @brief  Obtém a propriedade grupo de um vértice
-  * @param	vertice: vértice em questão
-  *
-  * @retval int: grupo da aresta
-  */
-int vertice_get_grupo(vertice_t *vertice) {
-
-	if (vertice == NULL){
-			fprintf(stderr, "vertice_get_grupo: vertice invalido\n");
-			exit(EXIT_FAILURE);
-	}
-
-	return vertice->id_grupo;
-}
 /**
   * @brief  Altera a propriedade pai de um vértice
   * @param	vertice: vértice em questão
