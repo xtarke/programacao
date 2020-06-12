@@ -159,6 +159,126 @@ vertice_t* procura_vertice(grafo_t *grafo, int id)
 }
 
 /**
+  * @brief  Cria adjacências.
+  * @param	grafo: ponteiro do grafo que contém o vértice (V pertence a G)
+  * @param  vertice: vértice fonte da(s) adjacências
+  * @param  n: número de parâmetros após n
+  * @param  ...: pares ordenados dos vertices destino e peso da aresta: (id vertice destino, peso aresta)
+  *
+  * @retval Nenhum
+  *
+  * Ex: adicionar uma aresta para o vertice 2 e 3
+  * adiciona_adjacentes(grafo, vertice_id, 2(n), 2, 3);
+  */
+
+void adiciona_adjacentes_id(grafo_t *grafo, int vertice_id, int n, ...)
+{
+	va_list argumentos;
+	vertice_t *vertice;
+	vertice_t *sucessor;
+	arestas_t *aresta;
+
+	int x;
+	int id_sucessor;
+
+	vertice = procura_vertice(grafo, vertice_id);
+
+	if (vertice == NULL){
+		fprintf(stderr, "adiciona_adjacentes_id: vértice %d inexistente!", vertice_id);
+		exit(-1);
+	}
+
+	/* Initializing arguments to store all values after num */
+	va_start (argumentos, n);
+
+	for (x = 0; x < n; x++)
+	{
+		id_sucessor = va_arg(argumentos, int);
+
+		sucessor = procura_vertice(grafo, id_sucessor);
+
+		if (sucessor == NULL) {
+			fprintf(stderr, "adiciona_adjacentes: sucessor nao encontrado no grafo\n");
+			exit(EXIT_FAILURE);
+		}
+
+		aresta = cria_aresta(vertice, sucessor,1);
+		adiciona_aresta(vertice, aresta);
+
+#ifdef DEBUG
+		printf("\tvertice: %d\n", vertice_get_id(vertice));
+		printf("\tsucessor: %d\n", id_sucessor);
+		printf("\tpeso: %d\n", peso);
+#endif
+
+	}
+
+	va_end (argumentos);
+}
+
+
+/**
+  * @brief  Cria adjacências.
+  * @param	grafo: ponteiro do grafo que contém o vértice (V pertence a G)
+  * @param  vertice: vértice fonte da(s) adjacências
+  * @param  n: número de parâmetros após n
+  * @param  ...: pares ordenados dos vertices destino e peso da aresta: (id vertice destino, peso aresta)
+  *
+  * @retval Nenhum
+  *
+  * Ex: adicionar uma aresta para o vertice 2 e 3 com respectivos pesos 9 e 15
+  * adiciona_adjacentes(grafo, vertice_id, 4(n), 2, 9, 3, 15);
+  */
+
+void adiciona_adjacentes_id_peso(grafo_t *grafo, int vertice_id, int n, ...)
+{
+	va_list argumentos;
+	vertice_t *vertice;
+	vertice_t *sucessor;
+	arestas_t *aresta;
+
+	int id_sucessor;
+	int peso;
+	int x;
+
+	vertice = procura_vertice(grafo, vertice_id);
+
+	if (vertice == NULL){
+		fprintf(stderr, "adiciona_adjacentes_id: vértice %d inexistente!", vertice_id);
+		exit(-1);
+	}
+
+	/* Initializing arguments to store all values after num */
+	va_start (argumentos, n);
+
+	for (x = 0; x < n; x=x+2 )
+	{
+		id_sucessor = va_arg(argumentos, int);
+		peso = va_arg(argumentos, int);
+
+		sucessor = procura_vertice(grafo, id_sucessor);
+
+		if (sucessor == NULL) {
+			fprintf(stderr, "adiciona_adjacentes: sucessor nao encontrado no grafo\n");
+			exit(EXIT_FAILURE);
+		}
+
+		aresta = cria_aresta(vertice, sucessor,peso);
+		adiciona_aresta(vertice, aresta);
+
+#ifdef DEBUG
+		printf("\tvertice: %d\n", vertice_get_id(vertice));
+		printf("\tsucessor: %d\n", id_sucessor);
+		printf("\tpeso: %d\n", peso);
+#endif
+
+	}
+
+	va_end (argumentos);
+}
+
+
+/**
   * @brief  Cria adjacências. 
   * @param	grafo: ponteiro do grafo que contém o vértice (V pertence a G)
   * @param  vertice: vértice fonte da(s) adjacências
@@ -171,7 +291,7 @@ vertice_t* procura_vertice(grafo_t *grafo, int id)
   * adiciona_adjacentes(grafo, vertice, 4(n), 2, 9, 3, 15);
   */
 
-void adiciona_adjacentes(grafo_t *grafo, vertice_t *vertice, int n, ...)
+void adiciona_adjacentes_ptr_peso(grafo_t *grafo, vertice_t *vertice, int n, ...)
 {
 	va_list argumentos;
 	vertice_t *sucessor;
@@ -179,7 +299,7 @@ void adiciona_adjacentes(grafo_t *grafo, vertice_t *vertice, int n, ...)
 
 	int id_sucessor;
 	int peso;
-        int x;
+	int x;
 
 	/* Initializing arguments to store all values after num */
 	va_start (argumentos, n);

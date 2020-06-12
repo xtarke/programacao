@@ -26,7 +26,9 @@ vertice_t* grafo_adicionar_vertice(grafo_t *grafo, int id);
  * proximos parametros: par ordenado composto por: <vert. destino> , <peso da aresta>
  * Ex: adicionar uma aresta para o vertice 2 e 3 com respectivos pesos 9 e 15
  * adiciona_adjacentes(grafo, vertice, 4, 2, 9, 3, 15);  */
-void adiciona_adjacentes(grafo_t *grafo, vertice_t *vertice, int n, ...);
+void adiciona_adjacentes_ptr_peso(grafo_t *grafo, vertice_t *vertice, int n, ...);
+void adiciona_adjacentes_id_peso(grafo_t *grafo, int vertice_id, int n, ...);
+void adiciona_adjacentes_id(grafo_t *grafo, int vertice_id, int n, ...);
 
 /* Procura um vertice no grafo com id numerico */
 vertice_t* procura_vertice(grafo_t *grafo, int id);
