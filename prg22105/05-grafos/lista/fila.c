@@ -18,7 +18,7 @@ struct filas {
   *
   * @retval fila_t: ponteiro para uma nova fila
   */
-fila_t * cria_fila (void)
+fila_t * criar_fila (void)
 {
 	fila_t *p = (fila_t*)malloc(sizeof(fila_t));
 
@@ -87,7 +87,7 @@ void *dequeue(fila_t *fila)
   *
   * @retval Nenhum 
   */
-void libera_fila(fila_t* fila)
+void liberar_fila(fila_t* fila)
 {
     if (fila == NULL) {
         fprintf(stderr, "Erro em libera_fila\n");
