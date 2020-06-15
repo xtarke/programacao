@@ -11,11 +11,11 @@
 #include <limits.h>
 #include "grafo.h"
 #include "vertice.h"
-#include "../lista_enc/lista_enc.h"
-#include "../lista_enc/no.h"
-#include "../fila/fila.h"
+#include "lista_enc.h"
+#include "no.h"
+#include "fila.h"
 
-#include "../pilha/pilha.h"
+#include "pilha.h"
 
 #define FALSE 0
 #define TRUE 1
@@ -66,7 +66,7 @@ void dfs(grafo_t *grafo, vertice_t* inicial)
   *
   * @retval grafo_t: ponteiro para um novo grafo
   */
-grafo_t *cria_grafo(int id)
+grafo_t *criar_grafo(int id)
 {
 	grafo_t *p = NULL;
 
@@ -104,13 +104,13 @@ vertice_t* grafo_adicionar_vertice(grafo_t *grafo, int id)
 			exit(EXIT_FAILURE);
 	}
 
-	if (procura_vertice(grafo, id) != NULL) {
+	if (procurar_vertice(grafo, id) != NULL) {
 		fprintf(stderr,"grafo_adicionar_vertice: vertice duplicado!\n");
 		exit(EXIT_FAILURE);
 	}
 
-	vertice = cria_vertice(id);
-	no = cria_no(vertice);
+	vertice = criar_vertice(id);
+	no = criar_no(vertice);
 
 	add_cauda(grafo->vertices, no);
 
@@ -124,7 +124,7 @@ vertice_t* grafo_adicionar_vertice(grafo_t *grafo, int id)
   *
   * @retval vertice_t: ponteiro do vértice. NULL se não encontrado
   */
-vertice_t* procura_vertice(grafo_t *grafo, int id)
+vertice_t* procurar_vertice(grafo_t *grafo, int id)
 {
 	no_t *no_lista;
 	vertice_t *vertice;
@@ -152,7 +152,7 @@ vertice_t* procura_vertice(grafo_t *grafo, int id)
 			return vertice;
 		}
 
-		no_lista = obtem_proximo(no_lista);
+		no_lista = obter_proximo(no_lista);
 	}
 
 	return NULL;
@@ -162,16 +162,16 @@ vertice_t* procura_vertice(grafo_t *grafo, int id)
   * @brief  Cria adjacências.
   * @param	grafo: ponteiro do grafo que contém o vértice (V pertence a G)
   * @param  vertice: vértice fonte da(s) adjacências
-  * @param  n: número de parâmetros após n
-  * @param  ...: pares ordenados dos vertices destino e peso da aresta: (id vertice destino, peso aresta)
+  * @param  n: número de vértices adjacentes
+  * @param  ...: vértices adjacentes (máx n)
   *
   * @retval Nenhum
   *
   * Ex: adicionar uma aresta para o vertice 2 e 3
-  * adiciona_adjacentes(grafo, vertice_id, 2(n), 2, 3);
+  * adiciona_adjacentes(grafo, vertice_id, 2, 2, 3);
   */
 
-void adiciona_adjacentes_id(grafo_t *grafo, int vertice_id, int n, ...)
+void adicionar_adjacentes_id(grafo_t *grafo, int vertice_id, int n, ...)
 {
 	va_list argumentos;
 	vertice_t *vertice;
@@ -181,7 +181,7 @@ void adiciona_adjacentes_id(grafo_t *grafo, int vertice_id, int n, ...)
 	int x;
 	int id_sucessor;
 
-	vertice = procura_vertice(grafo, vertice_id);
+	vertice = procurar_vertice(grafo, vertice_id);
 
 	if (vertice == NULL){
 		fprintf(stderr, "adiciona_adjacentes_id: vértice %d inexistente!", vertice_id);
@@ -195,15 +195,15 @@ void adiciona_adjacentes_id(grafo_t *grafo, int vertice_id, int n, ...)
 	{
 		id_sucessor = va_arg(argumentos, int);
 
-		sucessor = procura_vertice(grafo, id_sucessor);
+		sucessor = procurar_vertice(grafo, id_sucessor);
 
 		if (sucessor == NULL) {
 			fprintf(stderr, "adiciona_adjacentes: sucessor nao encontrado no grafo\n");
 			exit(EXIT_FAILURE);
 		}
 
-		aresta = cria_aresta(vertice, sucessor,1);
-		adiciona_aresta(vertice, aresta);
+		aresta = criar_aresta(vertice, sucessor,1);
+		adicionar_aresta(vertice, aresta);
 
 #ifdef DEBUG
 		printf("\tvertice: %d\n", vertice_get_id(vertice));
@@ -230,7 +230,7 @@ void adiciona_adjacentes_id(grafo_t *grafo, int vertice_id, int n, ...)
   * adiciona_adjacentes(grafo, vertice_id, 4(n), 2, 9, 3, 15);
   */
 
-void adiciona_adjacentes_id_peso(grafo_t *grafo, int vertice_id, int n, ...)
+void adicionar_adjacentes_id_peso(grafo_t *grafo, int vertice_id, int n, ...)
 {
 	va_list argumentos;
 	vertice_t *vertice;
@@ -241,7 +241,7 @@ void adiciona_adjacentes_id_peso(grafo_t *grafo, int vertice_id, int n, ...)
 	int peso;
 	int x;
 
-	vertice = procura_vertice(grafo, vertice_id);
+	vertice = procurar_vertice(grafo, vertice_id);
 
 	if (vertice == NULL){
 		fprintf(stderr, "adiciona_adjacentes_id: vértice %d inexistente!", vertice_id);
@@ -256,15 +256,15 @@ void adiciona_adjacentes_id_peso(grafo_t *grafo, int vertice_id, int n, ...)
 		id_sucessor = va_arg(argumentos, int);
 		peso = va_arg(argumentos, int);
 
-		sucessor = procura_vertice(grafo, id_sucessor);
+		sucessor = procurar_vertice(grafo, id_sucessor);
 
 		if (sucessor == NULL) {
 			fprintf(stderr, "adiciona_adjacentes: sucessor nao encontrado no grafo\n");
 			exit(EXIT_FAILURE);
 		}
 
-		aresta = cria_aresta(vertice, sucessor,peso);
-		adiciona_aresta(vertice, aresta);
+		aresta = criar_aresta(vertice, sucessor,peso);
+		adicionar_aresta(vertice, aresta);
 
 #ifdef DEBUG
 		printf("\tvertice: %d\n", vertice_get_id(vertice));
@@ -291,7 +291,7 @@ void adiciona_adjacentes_id_peso(grafo_t *grafo, int vertice_id, int n, ...)
   * adiciona_adjacentes(grafo, vertice, 4(n), 2, 9, 3, 15);
   */
 
-void adiciona_adjacentes_ptr_peso(grafo_t *grafo, vertice_t *vertice, int n, ...)
+void adicionar_adjacentes_ptr_peso(grafo_t *grafo, vertice_t *vertice, int n, ...)
 {
 	va_list argumentos;
 	vertice_t *sucessor;
@@ -309,15 +309,15 @@ void adiciona_adjacentes_ptr_peso(grafo_t *grafo, vertice_t *vertice, int n, ...
 		id_sucessor = va_arg(argumentos, int);
 		peso = va_arg(argumentos, int);
 
-		sucessor = procura_vertice(grafo, id_sucessor);
+		sucessor = procurar_vertice(grafo, id_sucessor);
 
 		if (sucessor == NULL) {
 			fprintf(stderr, "adiciona_adjacentes: sucessor nao encontrado no grafo\n");
 			exit(EXIT_FAILURE);
 		}
 
-		aresta = cria_aresta(vertice, sucessor,peso);
-		adiciona_aresta(vertice, aresta);
+		aresta = criar_aresta(vertice, sucessor,peso);
+		adicionar_aresta(vertice, aresta);
 
 #ifdef DEBUG
 		printf("\tvertice: %d\n", vertice_get_id(vertice));
@@ -379,7 +379,7 @@ void exportar_grafo_dot(const char *filename, grafo_t *grafo)
 
 			//ignora caso já exportada
 			if (aresta_get_status(aresta) == EXPORTADA) {
-				no_arest = obtem_proximo(no_arest);
+				no_arest = obter_proximo(no_arest);
 				continue;
 			}
 
@@ -399,9 +399,9 @@ void exportar_grafo_dot(const char *filename, grafo_t *grafo)
 					vertice_get_id(adjacente),
 					peso);
 
-			no_arest = obtem_proximo(no_arest);
+			no_arest = obter_proximo(no_arest);
 		}
-		no_vert = obtem_proximo(no_vert);
+		no_vert = obter_proximo(no_vert);
 	}
 	fprintf(file, "}\n");
 	fclose(file);
@@ -413,7 +413,7 @@ void exportar_grafo_dot(const char *filename, grafo_t *grafo)
   *
   * @retval Nenhum
   */
-void libera_grafo (grafo_t *grafo){
+void liberar_grafo (grafo_t *grafo){
 	no_t *no_vert;
 	no_t *no_arest;
 	no_t *no_liberado;
@@ -442,7 +442,7 @@ void libera_grafo (grafo_t *grafo){
 
 			//libera no da lsita
 			no_liberado = no_arest;
-			no_arest = obtem_proximo(no_arest);
+			no_arest = obter_proximo(no_arest);
 			free(no_liberado);
 		}
 
@@ -452,7 +452,7 @@ void libera_grafo (grafo_t *grafo){
 
 		//libera no da lista
 		no_liberado = no_vert;
-		no_vert = obtem_proximo(no_vert);
+		no_vert = obter_proximo(no_vert);
 		free(no_liberado);
 	}
 

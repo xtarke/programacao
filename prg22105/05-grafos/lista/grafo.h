@@ -9,12 +9,12 @@
 #define GRAFO_GRAFO_H_
 
 #include "vertice.h"
-#include "../pilha/pilha.h"
+#include "pilha.h"
 
 typedef struct grafos grafo_t;
 
 /* Cria um novo grafo com id */
-grafo_t *cria_grafo(int id);
+grafo_t *criar_grafo(int id);
 
 /* Adiciona um vertice ao grafo */
 vertice_t* grafo_adicionar_vertice(grafo_t *grafo, int id);
@@ -26,18 +26,18 @@ vertice_t* grafo_adicionar_vertice(grafo_t *grafo, int id);
  * proximos parametros: par ordenado composto por: <vert. destino> , <peso da aresta>
  * Ex: adicionar uma aresta para o vertice 2 e 3 com respectivos pesos 9 e 15
  * adiciona_adjacentes(grafo, vertice, 4, 2, 9, 3, 15);  */
-void adiciona_adjacentes_ptr_peso(grafo_t *grafo, vertice_t *vertice, int n, ...);
-void adiciona_adjacentes_id_peso(grafo_t *grafo, int vertice_id, int n, ...);
-void adiciona_adjacentes_id(grafo_t *grafo, int vertice_id, int n, ...);
+void adicionar_adjacentes_ptr_peso(grafo_t *grafo, vertice_t *vertice, int n, ...);
+void adicionar_adjacentes_id_peso(grafo_t *grafo, int vertice_id, int n, ...);
+void adicionar_adjacentes_id(grafo_t *grafo, int vertice_id, int n, ...);
 
 /* Procura um vertice no grafo com id numerico */
-vertice_t* procura_vertice(grafo_t *grafo, int id);
+vertice_t* procurar_vertice(grafo_t *grafo, int id);
 
 /* Exporta o grafo utilizando a linguagem dot */
 void exportar_grafo_dot(const char *filename, grafo_t *grafo);
 
 /* Libera memoria utilizada pelo grafo */
-void libera_grafo (grafo_t *grafo);
+void liberar_grafo (grafo_t *grafo);
 
 /* Menor camingo entre todos os nos:
  * retorna um pilha do caminho entre fonte e destino  */

@@ -15,7 +15,7 @@ struct nos{
   *
   * @retval no_t: ponteiro do tipo nó contendo a referência do dado.
   */
-no_t *cria_no(void *dado)
+no_t *criar_no(void *dado)
 {
     no_t *p = malloc(sizeof(no_t));
 
@@ -38,7 +38,7 @@ no_t *cria_no(void *dado)
   *
   * @retval Nenhum.
   */
-void liga_nos (no_t *fonte, no_t *destino)
+void ligar_nos (no_t *fonte, no_t *destino)
 {
     if (fonte == NULL || destino == NULL){
         fprintf(stderr,"liga_nos: ponteiros invalidos");
@@ -55,7 +55,7 @@ void liga_nos (no_t *fonte, no_t *destino)
   *
   * @retval Nenhum.
   */
-void desliga_no (no_t *no)
+void desligar_no (no_t *no)
 {
     if (no == NULL) {
         fprintf(stderr,"liga_nos: ponteiros invalidos");
@@ -73,7 +73,7 @@ void desliga_no (no_t *no)
   *
   * @retval Nenhum.
   */
-void desliga_no_anterior (no_t *no)
+void desligar_no_anterior (no_t *no)
 {
     if (no == NULL) {
         fprintf(stderr,"liga_nos: ponteiros invalidos");
@@ -89,7 +89,7 @@ void desliga_no_anterior (no_t *no)
   *
   * @retval Nenhum.
   */
-void desliga_no_proximo (no_t *no)
+void desligar_no_proximo (no_t *no)
 {
     if (no == NULL) {
         fprintf(stderr,"liga_nos: ponteiros invalidos");
@@ -121,7 +121,7 @@ void *obter_dado (no_t *no)
   *
   * @retval no_t *: onteiro do próximo elemento da lista. NULL se final de lista.
   */
-no_t *obtem_proximo (no_t *no)
+no_t *obter_proximo (no_t *no)
 {
     if (no == NULL) {
         fprintf(stderr,"liga_nos: ponteiros invalidos");
@@ -137,7 +137,7 @@ no_t *obtem_proximo (no_t *no)
   *
   * @retval no_t *: ponteiro do elemento anterior da lista. NULL se final de lista.
   */
-no_t *obtem_anterior (no_t *no)
+no_t *obter_anterior (no_t *no)
 {
     if (no == NULL) {
         fprintf(stderr,"liga_nos: ponteiros invalidos");

@@ -13,16 +13,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "pilha/pilha.h"
-#include "fila/fila.h"
-#include "grafo/grafo.h"
+#include "pilha.h"
+#include "fila.h"
+#include "grafo.h"
 
 int main(void) {
 
 	grafo_t *grafo;
 	vertice_t* vertice;
 
-	grafo = cria_grafo(0);
+	grafo = criar_grafo(0);
 
 	//Adiciona todos os vertices no grafo
 	vertice = grafo_adicionar_vertice(grafo, 0);
@@ -30,15 +30,15 @@ int main(void) {
 	vertice = grafo_adicionar_vertice(grafo, 2);
 	vertice = grafo_adicionar_vertice(grafo, 3);
 
-	adiciona_adjacentes_id(grafo, 0,  3,  1, 3, 2);
-	adiciona_adjacentes_id(grafo, 1,  2,  0, 3);
-	adiciona_adjacentes_id(grafo, 2,  1,  0);
-	adiciona_adjacentes_id(grafo, 3,  2,  0, 1);
+	adicionar_adjacentes_id(grafo, 0,  3,  1, 3, 2);
+	adicionar_adjacentes_id(grafo, 1,  2,  0, 3);
+	adicionar_adjacentes_id(grafo, 2,  1,  0);
+	adicionar_adjacentes_id(grafo, 3,  2,  0, 1);
+
 
 	exportar_grafo_dot("grafo.dot", grafo);
 
-
-	libera_grafo(grafo);
+	liberar_grafo(grafo);
 
 	return EXIT_SUCCESS;
 }

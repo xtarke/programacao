@@ -65,13 +65,13 @@ void add_cauda(lista_enc_t *lista, no_t* elemento)
         lista->cabeca = elemento;
         lista->tamanho++;
 
-        desliga_no(elemento);
+        desligar_no(elemento);
    }
    else {
         // Remove qualquer ligacao antiga
-        desliga_no(elemento);
+        desligar_no(elemento);
         // Liga cauda da lista com novo elemento
-        liga_nos(lista->cauda, elemento);
+        ligar_nos(lista->cauda, elemento);
 
         lista->cauda = elemento;
         lista->tamanho++;
@@ -98,7 +98,7 @@ void imprimi_lista (lista_enc_t *lista)
     while (no){
         printf("Dados: %p\n", obter_dado(no));
 
-        no = obtem_proximo(no);
+        no = obter_proximo(no);
     }
 }
 
@@ -122,7 +122,7 @@ void imprimi_lista_tras (lista_enc_t *lista)
     while (no){
         printf("Dados: %p\n", obter_dado(no));
 
-        no = obtem_anterior(no);
+        no = obter_anterior(no);
     }
 }
 
@@ -203,10 +203,10 @@ no_t *remover_cauda(lista_enc_t *lista)
 		return removido;
 	}
 
-	anterior = obtem_anterior(lista->cauda);
-	desliga_no(removido);
+	anterior = obter_anterior(lista->cauda);
+	desligar_no(removido);
 	lista->cauda = anterior;
-	desliga_no_proximo(anterior);
+	desligar_no_proximo(anterior);
 	lista->tamanho--;
 
 	return removido;
@@ -242,10 +242,10 @@ no_t *remover_cabeca(lista_enc_t *lista)
 		return removido;
 	}
 
-	proximo = obtem_proximo(lista->cabeca);
-	desliga_no(removido);
+	proximo = obter_proximo(lista->cabeca);
+	desligar_no(removido);
 	lista->cabeca = proximo;
-	desliga_no_anterior(proximo);
+	desligar_no_anterior(proximo);
 	lista->tamanho--;
 
 
@@ -286,15 +286,15 @@ void *remover_no(lista_enc_t *lista, no_t *no_removido)
 				remover_cauda(lista);
 			else
 			{
-				proximo = obtem_proximo(meu_no);
-				anterior = obtem_anterior(meu_no);
-				liga_nos(anterior, proximo);
+				proximo = obter_proximo(meu_no);
+				anterior = obter_anterior(meu_no);
+				ligar_nos(anterior, proximo);
 				lista->tamanho--;
 			}
 			free(meu_no);
 			break;
 		}
-		meu_no = obtem_proximo(meu_no);
+		meu_no = obter_proximo(meu_no);
 	}
 
 	return dado;

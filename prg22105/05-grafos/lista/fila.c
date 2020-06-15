@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "../lista_enc/lista_enc.h"
-#include "../lista_enc/no.h"
+#include "lista_enc.h"
+#include "no.h"
 #include "fila.h"
 
 #define FALSO 0
@@ -53,7 +53,7 @@ void enqueue(void* dado, fila_t *fila)
     printf("enqueue: %x\n", dado);
     #endif // DEBUG
 
-    no = cria_no(dado);
+    no = criar_no(dado);
     add_cauda(fila->dados, no);
 }
 

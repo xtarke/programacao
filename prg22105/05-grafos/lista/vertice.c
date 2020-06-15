@@ -9,7 +9,7 @@
 #include <stdio.h>
 
 #include "vertice.h"
-#include "../lista_enc/lista_enc.h"
+#include "lista_enc.h"
 
 struct vertices {
 	int id;                /*!< Identificação numérica do vértice  */
@@ -38,7 +38,7 @@ struct arestas {
   *
   * @retval vertice_t: ponteiro para um novo vértice
   */
-vertice_t *cria_vertice(int id)
+vertice_t *criar_vertice(int id)
 {
 	vertice_t *p = NULL;
 
@@ -80,7 +80,7 @@ int vertice_get_id(vertice_t *vertice)
   *
   * @retval arestas_t: ponteiro da nova aresta criada
   */
-arestas_t *cria_aresta(vertice_t *fonte, vertice_t *destino, int peso)
+arestas_t *criar_aresta(vertice_t *fonte, vertice_t *destino, int peso)
 {
 	arestas_t *p;
 
@@ -105,7 +105,7 @@ arestas_t *cria_aresta(vertice_t *fonte, vertice_t *destino, int peso)
   *
   * @retval Nenhum
   */
-void adiciona_aresta(vertice_t *vertice, arestas_t *aresta)
+void adicionar_aresta(vertice_t *vertice, arestas_t *aresta)
 {
 	no_t *no;
 
@@ -114,7 +114,7 @@ void adiciona_aresta(vertice_t *vertice, arestas_t *aresta)
 		exit(EXIT_FAILURE);
 	}
 
-	no = cria_no(aresta);
+	no = criar_no(aresta);
 	add_cauda(vertice->arestas, no);
 
 }
@@ -192,7 +192,7 @@ arestas_t *procurar_adjacente(vertice_t *vertice, vertice_t *adjacente)
 		if (aresta->dest == adjacente || aresta->fonte == adjacente)
 			return aresta;
 
-		no = obtem_proximo(no);
+		no = obter_proximo(no);
 	}
 
 	return NULL;
@@ -242,9 +242,10 @@ void aresta_set_status(arestas_t *aresta, status_aresta_t status)
 void vertice_set_pai(vertice_t *vertice, vertice_t *pai) {
 
 	if (vertice == NULL){
-			fprintf(stderr, "vertice_set_pai: vertice invalido\n");
-			exit(EXIT_FAILURE);
+		fprintf(stderr, "vertice_set_pai: vertice invalido\n");
+		exit(EXIT_FAILURE);
 	}
 
 	vertice->pai = pai;
 }
+

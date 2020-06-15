@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "../lista_enc/lista_enc.h"
-#include "../lista_enc/no.h"
+#include "lista_enc.h"
+#include "no.h"
 #include "pilha.h"
 
 //#define DEBUG
@@ -53,7 +53,7 @@ void push(void* dado, pilha_t *pilha)
     printf("push: %x\n", dado);
     #endif // DEBUG
 
-    no = cria_no(dado);
+    no = criar_no(dado);
     add_cauda(pilha->dados, no);
 }
 
