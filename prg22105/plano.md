@@ -10,14 +10,14 @@
   - Apresentações da avaliação 2, avaliação 3 e projeto final.
   - Link/URL da reunião é __fixo__. Disponível no [Moodle](htps://moodle.ifsc.edu.br) e no convite enviado pelo Google agenda.
   - __Encontros síncronos são opcionais, salvo para as avaliações__.
-- Dúvidas pontuais podem ser sanadas pelo Whastup, _mas recomenda-se os encontros síncronos._
+- Dúvidas pontuais podem ser sanadas pelo Whatsapp, _mas recomenda-se os encontros síncronos._
 
 - O conceito, a carga horária e a presença são computados em função da visualização dos vídeos e entrega das avaliações.
 
 ## Resumo dos tópicos (veja o [Moodle](https://moodle.ifsc.edu.br))
 
 - Tópico 1:
-  - Slides: pre-processador
+  - Slides: pré-processador
 
 - Tópico 2:
   - Slides: Revisão da entrada e saída em C
@@ -27,7 +27,7 @@
 
 - Tópico 4:
   - Slides: Tipos abstratos de dados
-  - Vídeo aula - Revisão: Eclipse, tidos de dados abstratos e vetor de ponteiros (1h)
+  - Vídeo aula - Revisão: Eclipse, tipos de dados abstratos e vetor de ponteiros (1h)
   - Tarefa 03: dados abstratos do arquivo CSV
 
 - Tópico 5:
@@ -55,7 +55,7 @@
     - Vídeo aula - Implementação de grafos por matriz de adjacência (21m)
     - Vídeo aula - Busca em largura, grafo em matriz de adjacência (22m)
     - Vídeo aula - Implementação de grafos por listas encadeadas (24m)
-    - Vídeo aula - Busca em largura, grafo em listas encadeadas(26m)
+    - Vídeo aula - Busca em largura, grafo em listas encadeadas (26m)
   - Slides: Árvores e heaps
     - Vídeo aula - Conceito de árvore (18m)
     - Vídeo aula - Árvores binárias e buscas (34m)

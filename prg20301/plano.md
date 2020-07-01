@@ -10,8 +10,8 @@
   - Dúvidas sobre os exercícios.
   - Apresentações da avaliação 2, avaliação 3 e projeto final.
   - Link/URL da reunião é __fixo__. Disponível no [Moodle](htps://moodle.ifsc.edu.br) e no convite enviado pelo Google agenda.
-  - __Encontros síncronos são opcinais, salvo para as avaliações__.
-- Dúvidas pontuais podem ser sanadas pelo Whastup, _mas recomenda-se os encontros síncronos._
+  - __Encontros síncronos são opcionais, salvo para as avaliações__.
+- Dúvidas pontuais podem ser sanadas pelo Whatsapp, _mas recomenda-se os encontros síncronos._
 
 - Livro:
   FORBELLONE, André Luiz Villar; EBERSPACHER, Henri Frederico. __Lógica de programação: a construção de algoritmos e estrutura de dados.__ 3. ed. São Paulo: Pearson Education do Brasil, 2005.
@@ -26,14 +26,14 @@
 
 - Tópico 2:
   - __Livro Capítulo 2: Tópicos preliminares__
-  - Slides: Intro ao Python, variáveis e tipos de dados
+  - Slides: Introdução ao Python, variáveis e tipos de dados
   - Vídeo aula 01 - Introdução ao Python (31m).
   - Vídeo aula 02 - Uso do Jupyter (10m)
 
 - Tópico 3:
   - __Capítulo 3: Estruturas de controle__
   - Slides: Estruturas de decisão
-  - Vídeo aula 03 - Estrturas de decisão (30m)
+  - Vídeo aula 03 - Estruturas de decisão (30m)
 
 - Tópico 4:
   - Implementação das tarefas 01 a 07 (Avaliação 01)
