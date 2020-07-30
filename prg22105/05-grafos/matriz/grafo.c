@@ -2,6 +2,7 @@
  * grafo.c
  *
  *  Created on: Nov 18, 2016
+ *      reviewed: Jul 29, 2020
  *      Author: Renan Augusto Starke
  */
 
@@ -92,7 +93,7 @@ grafo_t *cria_grafo(int vertices)
 
 /**
   * @brief  Libera a memória utilizada pelo grafo
-  * @param	Nenhum
+  * @param	g: um grafo instanciado
   *
   * @retval Nenhum
   */
@@ -114,6 +115,7 @@ void libera_grafo (grafo_t *g){
 
 /**
   * @brief  Cria adjacência entre vértices u e v
+  * @param	g: um grafo instanciado
   * @param	u: índice do vértice u
   * @param  v: índice do vértice v
   *
@@ -135,6 +137,7 @@ int cria_adjacencia(grafo_t *g, int u, int v){
 
 /**
   * @brief  Remove adjacência entre vértices u e v
+  * @param	g: um grafo instanciado
   * @param	u: índice do vértice u
   * @param  v: índice do vértice v
   *
@@ -156,6 +159,7 @@ int rem_adjacencia(grafo_t *g, int u, int v){
 
 /**
   * @brief  Retorna adjacência entre vértices u e v
+  * @param	g: um grafo instanciado
   * @param	u: índice do vértice u
   * @param  v: índice do vértice v
   *
@@ -168,3 +172,40 @@ int adjacente(grafo_t *g, int u, int v){
 
 	return ((g->matriz_adj[u][v].adj));
 }
+
+
+/**
+  * @brief  Exporta o grafo no formato dot (graphviz)
+  * @param	g: um grafo instanciado
+  *
+  * @retval Nenhum
+  */
+void exportar_dot(grafo_t *g){
+
+	int i,j;
+
+	FILE *fp = fopen("grafo.dot", "w");
+
+	if (!fp){
+		perror("exportar_dot");
+		exit(EXIT_FAILURE);
+	}
+
+	fputs("graph {", fp);
+
+	for (i=0; i < g->n_vertices; i++)
+		for (j=i; j < g->n_vertices;j++){
+
+			if (adjacente(g,i,j))
+				fprintf(fp, "\t%d -- %d [label = %d];\n",
+										i,
+										j,
+										0);
+
+		}
+
+	fputs("}", fp);
+
+	fclose(fp);
+}
+

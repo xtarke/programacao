@@ -38,6 +38,8 @@ int main(void) {
 			printf("[%d] [%d] : %d\n", i,j, adjacente(g,i,j));
 	}
 
+	/* Gera grafo.dot que pode ser desenhado no webgraphivz */
+	exportar_dot(g);
 
 
 	libera_grafo(g);

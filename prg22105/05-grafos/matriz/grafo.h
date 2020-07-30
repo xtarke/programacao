@@ -21,4 +21,6 @@ int cria_adjacencia(grafo_t *g, int u, int v);
 int rem_adjacencia(grafo_t *g, int u, int v);
 int adjacente(grafo_t *g, int u, int v);
 
+void exportar_dot(grafo_t *g);
+
 #endif /* GRAFO_H_ */
