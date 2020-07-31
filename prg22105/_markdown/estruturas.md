@@ -133,6 +133,38 @@ minha_moto.marca = "Ducati";
 minha_moto.modelo = 2015;
 ```
 
+## Alocação dinâmica e estruturas
+
+Estruturas também podem ser alocadas dinamicamente:
+
+```C
+
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct veiculo {
+    char marca[64];
+    int modelo;
+} veiculo_t;
+
+int main(){
+
+    veiculo_t *novo_carro = malloc(sizeof(veiculo_t));
+
+    /* Verifica se malloc alocou a memória */
+    if (novo_carro == NULL){
+      perror("malloc de novo_carro");
+      exit(EXIT_FAILURE);      
+    }
+
+    /* Veja que devemos copiar a string explicitamente
+     * para o membro marca */
+    strncpy(novo_carro->marca, "Mustang", 64);
+    novo_carro->modelo = 2020;
+
+    (...)
+}
+
 ## Exercícios
 
 - Defina uma nova estrutura, chamada pessoa, que contenha uma string nome e um inteiro idade:
@@ -163,7 +195,7 @@ typedef struct dados {
      char nome[20];
      float altura;
      float peso;
-} pessoa_t; 
+} pessoa_t;
 
 
 /* Passagem de parâmetros por vetor para n pessoas */

@@ -53,7 +53,7 @@ pacman -Sy base-devel mingw-w64-x86_64-toolchain
 
 ![fig](./imgs/eclipse_00.png)
 
-# Instalar compilador AVR e integrar ao Eclipse
+# Instalar compilador AVR (apenas para microcontroladores) e integrar ao Eclipse
 
 - Plugin no Eclipse, siga  [essas](http://avr-eclipse.sourceforge.net/wiki/index.php/Plugin_Download) instruções:
     - No eclipse: Help -> Install new software
@@ -101,6 +101,3 @@ pacman -Sy base-devel mingw-w64-x86_64-toolchain
     ```
     Build Finished. 0 errors, 0 warnings. (took 1s.352ms)
     ```
-
-
-
