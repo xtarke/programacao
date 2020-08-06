@@ -164,6 +164,7 @@ int main(){
 
     (...)
 }
+```
 
 ## Exercícios
 
