@@ -4,7 +4,7 @@
  Author      : Renan Augusto Starke
  Version     :
  Copyright   : Instituto Federal de Santa Catarina
- Description : Hello World in C, Ansi-style
+ Description : Exemplo de projeto para benchmark das ordenações
  ============================================================================
  */
 
