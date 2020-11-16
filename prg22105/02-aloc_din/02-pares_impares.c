@@ -31,7 +31,7 @@ int main(int argc, char ** argv) {
 
   puts("Impares:");
   for (i=0; i < qtdI; i++)
-	  printf("%d ",numeros[i]);
+	  printf("%d ",imp[i]);
 
   free(numeros);
   free(imp);
@@ -57,8 +57,10 @@ int *impares(int *a, int tamanho, int *qtdImpares){
   }
 
   for (i = 0; i < tamanho; i++)
-    if (a[i] % 2 == 1)
+    if (a[i] % 2 == 1){
       impares[j++]=a[i];
+      printf("%d\n", a[i]);
+    }
 
   *qtdImpares = qtdI;
 
