@@ -57,10 +57,8 @@ int *impares(int *a, int tamanho, int *qtdImpares){
   }
 
   for (i = 0; i < tamanho; i++)
-    if (a[i] % 2 == 1){
+    if (a[i] % 2 == 1)
       impares[j++]=a[i];
-      printf("%d\n", a[i]);
-    }
 
   *qtdImpares = qtdI;
 
