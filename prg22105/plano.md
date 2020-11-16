@@ -76,13 +76,13 @@
   - Slides: Ordenação por inserção
   - Slides: Ordenação por intercalação
   - Slides: Ordenação por seleção
-  - Vídeo aula - Conceito de ordenação e ordenação por troca
-  - Vídeo aula - Ordenação rápida
-  - Vídeo aula - Ordenação por inserção
-  - Vídeo aula - Ordenação por intercalação
-  - Vídeo aula - Ordenação por seleção
-  - Tarefa 09: avaliação de desempenho das ordenações
-
+  - Vídeo aula - Bubble Sort (18m)
+  - Vídeo aula - Quick sort (20h)
+  - Vídeo aula - Ordenação por inserção (23h)
+  - Vídeo aula - Ordenação por intercalação (15m)
+  - Vídeo aula - Ordenação por seleção (9m)
+  - Vídeo aula - Heap Sort (10m)
+ 
 - Tópico 10:
   - Projeto final.
 

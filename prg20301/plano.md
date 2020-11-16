@@ -59,7 +59,7 @@
   - __Capítulo 6: modularizando algoritmos. (página 152 a 154)__
   - Exemplos de exercícios resolvidos (pdf)
   - Extra: Circuitos, numpy e resolução de sistemas lineares
-  - Vídeo aula 06: funções
+  - Vídeo aula 06: funções (29m)
 
 - Tópico 9:
   - Implementação das tarefas 17 a 20 (Avaliação 03)
