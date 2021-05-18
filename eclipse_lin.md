@@ -1,6 +1,6 @@
 # Instalar Eclipse CDT (Linux)
 
-## Instalação gneérica
+## Instalação genérica
 
 1. Instalar os compiladores. Abra um __terminal__ e digite:
 
@@ -75,7 +75,7 @@ cp eclipse.desktop ~/.local/share/applications/
 ![fig](./imgs/eclipse_04.png)
 
 
-## Usando o epositório da instituição (apenas conectado na rede local do IFSC Campus Florianópolis)
+## Instalação usando o epositório da instituição (apenas conectado na rede local do IFSC Campus Florianópolis)
 
 - Esse é um guia para instalação do Eclipse no Linux utilizando as __mesmos conjuntos de softwares instalados nos laboratórios do DAELN__.
 
