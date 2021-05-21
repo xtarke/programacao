@@ -16,15 +16,15 @@ int main(){
         exit(EXIT_FAILURE);
     } 
 
-    /* Manipulação de dados */
-    while (1){
+    /* Manipulação de dados: Leitura dos dados:
+     * %79[^;] : Ler uma string de até 79 caractres. Para somente quando encontrar ;
+     * %d: dado inteiro
+     * %c: dada caracter */    
     
-        fscanf(fp, "%80[^;];%d;%c\n", nome, &idade, &sexo);
+    /* while só termina quando não for mais possível converter 3 dados do arquivo */    
+    while (fscanf(fp, "%80[^;];%d;%c\n", nome, &idade, &sexo) == 3){
         
         printf("%s  --  %d  --- %c\n",nome, idade, sexo);
-        
-         if (feof(fp))
-            break;
     }
         
     /* Fecha arquivo*/
