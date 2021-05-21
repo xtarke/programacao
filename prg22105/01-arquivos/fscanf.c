@@ -17,7 +17,7 @@ int main(){
     } 
 
     /* Manipulação de dados: Leitura dos dados:
-     * %79[^;] : Ler uma string de até 79 caractres. Para somente quando encontrar ;
+     * %79[^;] : Ler uma string de até 79 caractres. Pára somente quando encontrar ;
      * %d: dado inteiro
      * %c: dada caracter */    
     
