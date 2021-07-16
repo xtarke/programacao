@@ -19,8 +19,9 @@ int main(void) {
 	int i,j;
 	grafo_t *g;
 
-    /* Cria grafo com 20 vértices */
+	/* Cria grafo com 20 vértices */
 	g = cria_grafo(20);
+
 
 	/*    Adicionar arestas    *
 	 *------------------------ *
@@ -41,7 +42,7 @@ int main(void) {
 	/* Gera grafo.dot que pode ser desenhado no webgraphivz */
 	exportar_dot(g);
 
-
+	/* Exporta grafo em formato dot */
 	libera_grafo(g);
 
 	return EXIT_SUCCESS;
