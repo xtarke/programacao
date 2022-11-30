@@ -8,7 +8,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+/**
+ * @brief Exibe dados de um vetor de inteiros
+ * 
+ * @param vetor Vetor de inteiros
+ * @param tam Tamanho do vetor
+ */
 void exibir_vetor(int *vetor, int tam){
 
 	int i;
@@ -20,6 +25,12 @@ void exibir_vetor(int *vetor, int tam){
 
 }
 
+/**
+ * @brief Gera números inteiros aleatórios em um vetor
+ * 
+ * @param vetor Vetor de inteiros
+ * @param tam Tamanho do vetor
+ */
 void completar_vetor(int *vetor, int tam){
 
 	int i;

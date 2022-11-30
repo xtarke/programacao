@@ -11,6 +11,12 @@
 
 #include "bubble_sort.h"
 
+/**
+ * @brief Ordena um vetor utilizando o algoritmo Bubble Sort
+ * 
+ * @param vetor Vetor de inteiros
+ * @param tam Tamanho do vetor
+ */
 void bubble_sort(int *vetor, int tam)
 {
     int i, j, aux;

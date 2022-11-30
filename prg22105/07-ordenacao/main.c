@@ -27,19 +27,19 @@ int main(void) {
 
 	int *vet;
 
-	/* Muda a smenete do gerador de número aleatórios */
+	/* Muda a semente do gerador de número aleatórios */
 	srand(getpid()^time(NULL));
 
 	/* Aloca memória do vetor */
 	vet = (int *)malloc(sizeof(int) * TAM_VETOR);
 
-	/* Preenche vetor com numeros aleatórios */
+	/* Preenche vetor com números aleatórios */
 	completar_vetor(vet, TAM_VETOR);
 
 	/* Exibe dados */
 	exibir_vetor(vet,TAM_VETOR);
 
-	/* Ordena */
+	/* Ordena utilizando Bubble Sort*/
 	bubble_sort(vet, TAM_VETOR);
 
 	/* Exibe dados */
