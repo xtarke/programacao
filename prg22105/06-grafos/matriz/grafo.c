@@ -15,7 +15,7 @@
 struct vertices {
 	int id;         /*!< Identificação numérica do vértice  */
 	
-    /* Mais informações, se necessário */
+	/* Mais informações, se necessário */
 };
 
 struct arestas {
@@ -41,7 +41,7 @@ grafo_t *cria_grafo(int vertices)
 	int i;
 	aresta_t **matriz_adj;
 	/* Aloca estrutura do grafo */
-    grafo_t *g = malloc(sizeof(grafo_t));
+    	grafo_t *g = malloc(sizeof(grafo_t));
 
 	if (g == NULL){
 		perror("cria_grafo (g)");
@@ -50,7 +50,7 @@ grafo_t *cria_grafo(int vertices)
 
 	/* Guarda número total de vértices */
 	g->n_vertices = vertices;
-    /* Aloca vértices */
+   	/* Aloca vértices */
 	g->vertices = malloc(vertices * sizeof(vertice_t));
 
 	if (g->vertices == NULL){
@@ -62,12 +62,12 @@ grafo_t *cria_grafo(int vertices)
 	memset(g->vertices, 0, vertices * sizeof(vertice_t));
     
     
-    /* Inicializa ID */
-    for ( i = 0; i < vertices; i++ ){
-        g->vertices[i].id = i;
-    }    
+    	/* Inicializa ID */
+    	for ( i = 0; i < vertices; i++ ){
+		g->vertices[i].id = i;
+	}    
 
-    /* Aloca 1a dimensão da matriz de adjacência */
+	/* Aloca 1a dimensão da matriz de adjacência */
 	matriz_adj = malloc(vertices * sizeof(aresta_t *));
 
 	if (matriz_adj == NULL){
@@ -127,7 +127,7 @@ int cria_adjacencia(grafo_t *g, int u, int v){
 		return FALSE;
 	}
 
-	if (u > g->n_vertices || v > g->n_vertices )
+	if (u >= g->n_vertices || v >= g->n_vertices )
 		return FALSE;
 
 	g->matriz_adj[u][v].adj = TRUE;
@@ -149,7 +149,7 @@ int rem_adjacencia(grafo_t *g, int u, int v){
 		return FALSE;
 	}
 
-	if (u > g->n_vertices || v > g->n_vertices)
+	if (u >= g->n_vertices || v >= g->n_vertices)
 		return FALSE;
 
 	g->matriz_adj[u][v].adj = FALSE;
@@ -167,7 +167,7 @@ int rem_adjacencia(grafo_t *g, int u, int v){
   */
 int adjacente(grafo_t *g, int u, int v){
 
-	if (u > g->n_vertices || v > g->n_vertices)
+	if (u >= g->n_vertices || v >= g->n_vertices)
 		return FALSE;
 
 	return ((g->matriz_adj[u][v].adj));
