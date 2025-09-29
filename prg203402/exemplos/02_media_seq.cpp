@@ -1,4 +1,4 @@
-/* Programa básico que exibe "olá mundo" */
+/* Programa básico que calcula a média de 4 números */
 
 /* Bibliotecas */
 #include <iostream>
