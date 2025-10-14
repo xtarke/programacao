@@ -9,18 +9,19 @@ using namespace std;
 /* Função main: ponto de entrada */
 int main() {
 
-	int k;
-	float a[3];
+    int i = 0;
+    int j = 0;
 
-	// Vetor de float inicializado pelo usuario
-	for (k = 0; k < 3; k = k + 1){
-		cout << "Forneca um numero: ";
-		cin >> a[k];
-	}
+    int notas[10][3];
 
-	//Imprime todos os valores
-	for (k = 0; k < 3; k = k + 1)
-		cout << a[k] << endl;;
+    for (i=0; i < 10; i++)
+    {
+        cout << "Aluno: " << i << endl;;
+        for (j=0; j < 3; j++){
+            cout << "Nota[" << j << "]: ";
+            cin >> notas[j][i];
+        }
+    }
+    return 0;
 
-	return 0;
 }
