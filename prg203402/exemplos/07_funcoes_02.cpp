@@ -1,10 +1,4 @@
-//============================================================================
-// Name        : p1_bruno.cpp
-// Author      :
-// Version     :
-// Copyright   : Your copyright notice
-// Description : P1
-//============================================================================
+/* Exemplos de funções: sem parâmetros */
 
 #include <iostream>
 using namespace std;

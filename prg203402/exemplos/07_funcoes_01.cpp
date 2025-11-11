@@ -1,10 +1,4 @@
-//============================================================================
-// Name        : p1_bruno.cpp
-// Author      :
-// Version     :
-// Copyright   : Your copyright notice
-// Description : P1
-//============================================================================
+/* Exemplos de funções: parâmetro int  */
 
 #include <iostream>
 using namespace std;
@@ -14,7 +8,6 @@ void imprimi_dobro_funcao(int x){
 	cout << "Dobro: " << 2 * x << endl;
 
 }
-
 
 int main() {
 
