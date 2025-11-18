@@ -1,11 +1,10 @@
-/* Exemplos de funções: parâmetro com string */
+/* Exemplos de funções em módulos  */
 
 
 #include <iostream>
 #include <climits>
 
 using namespace std;
-
 
 float media(int *vetor, int tamanho){
 	int i, somatorio=0;
@@ -19,16 +18,14 @@ float media(int *vetor, int tamanho){
 	return media;
 }
 
-float maximo(int *vetor, int tamanho){
-	int i, somatorio=0;
+int maximo(int *vetor, int tamanho){
+	int i;
 	int maximo = INT_MIN;
 
-	float media;
+	for (i=0; i < tamanho; i++){
+		if (vetor[i] > maximo)
+			maximo = vetor[i];
+	}
 
-	for (i=0; i < tamanho; i++)
-		somatorio = somatorio + vetor[i];
-
-	media = (float)somatorio / tamanho;
-
-	return media;
+	return maximo;
 }
