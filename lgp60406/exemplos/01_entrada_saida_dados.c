@@ -1,8 +1,7 @@
-/* Programa básico que exibe "olá mundo" */
+/* Entrada de dados e tipos de variáveis */
 
 /* Bibliotecas */
 #include <stdio.h>
-
 
 /* Função main: ponto de entrada */
 int main() {
